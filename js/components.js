@@ -19,8 +19,9 @@
         </a>
 
         <!-- Mobile Brand (Logo only, shown on mobile) -->
-        <a href="index.html" class="navbar-brand d-lg-none">
-          <img src="img/LOGO.png" width="48" height="48" alt="SEGGC Logo">
+        <a href="index.html" class="navbar-brand d-lg-none ms-3" style="white-space:normal;line-height:1.3;font-size:0.65em;font-weight:700;max-width:130px;">
+          STRENGTH EMBASSY<br>GLOBAL GOSPEL<br>CENTRE
+          <span class="d-block text-primary" style="font-size:0.75em;">(BLESSED NATION)</span>
         </a>
 
         <!-- Mobile Toggler -->
