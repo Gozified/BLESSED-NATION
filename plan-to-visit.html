@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plan a Visit — Strength Embassy Global Gospel Centre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="img/favicon.ico" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c9a84c; --gold-lt: #e2c46e; --gold-dim: rgba(201,168,76,0.13);
+      --gold-ring: rgba(201,168,76,0.3); --ink: #090909; --ink2: #111;
+      --ink3: #191919; --ink4: #222; --ink5: #2c2c2c;
+      --text: #e8e2d9; --text-muted: #8a8278;
+      --ease: cubic-bezier(.4,0,.2,1); --spring: cubic-bezier(.34,1.56,.64,1);
+    }
+    html, body { height: 100%; overflow: hidden; background: var(--ink); color: var(--text); font-family: 'Outfit', sans-serif; }
+    body::before {
+      content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    #shell { position:fixed; inset:0; display:flex; flex-direction:column; z-index:10; }
+
+    .topbar { display:flex; align-items:center; justify-content:space-between; padding:16px 28px; border-bottom:1px solid var(--ink4); flex-shrink:0; background:var(--ink2); }
+    .topbar-brand { font-family:'Playfair Display',serif; font-size:.88rem; color:var(--gold); letter-spacing:.06em; }
+    .topbar-label { font-size:.72rem; color:var(--text-muted); letter-spacing:.12em; text-transform:uppercase; }
+    .btn-exit { background:none; border:1px solid var(--ink5); color:var(--text-muted); border-radius:8px; padding:6px 14px; font-size:.75rem; font-family:'Outfit',sans-serif; cursor:pointer; transition:all .2s; text-decoration:none; display:inline-block; }
+    .btn-exit:hover { border-color:var(--gold); color:var(--gold); }
+
+    .progress-track { height:2px; background:var(--ink4); flex-shrink:0; }
+    .progress-fill  { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-lt)); transition:width .55s var(--ease); width:0%; }
+
+    #viewport { flex:1; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; padding:20px; }
+
+    .step { position:absolute; width:100%; max-width:600px; padding:0 24px; opacity:0; transform:translateY(50px); pointer-events:none; transition:opacity .42s var(--ease), transform .42s var(--ease); }
+    .step.active { opacity:1; transform:translateY(0); pointer-events:all; position:relative; }
+    .step.gone   { opacity:0; transform:translateY(-50px); pointer-events:none; }
+
+    .step-eyebrow { font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+    .step-eyebrow::after { content:''; flex:1; max-width:40px; height:1px; background:var(--gold); opacity:.4; }
+    .step-q { font-family:'Playfair Display',serif; font-size:clamp(1.55rem,3.8vw,2.3rem); font-weight:700; line-height:1.2; color:#fff; margin-bottom:8px; }
+    .step-q em { font-style:italic; color:var(--gold); }
+    .step-hint { font-size:.84rem; color:var(--text-muted); margin-bottom:26px; line-height:1.6; }
+
+    .tf-line { width:100%; background:transparent; border:none; border-bottom:2px solid var(--ink5); color:#fff; font-family:'Outfit',sans-serif; font-size:1.1rem; padding:10px 0; outline:none; transition:border-color .25s; }
+    .tf-line:focus { border-bottom-color:var(--gold); }
+    .tf-line::placeholder { color:#2e2e2e; }
+    input[type="date"].tf-line::-webkit-calendar-picker-indicator { filter:invert(.6) sepia(1) saturate(3) hue-rotate(5deg); cursor:pointer; }
+
+    .tf-area { width:100%; background:var(--ink3); border:1px solid var(--ink5); border-radius:12px; color:#fff; font-family:'Outfit',sans-serif; font-size:.97rem; padding:16px 18px; outline:none; resize:none; min-height:120px; line-height:1.65; transition:border-color .25s; }
+    .tf-area:focus { border-color:var(--gold); }
+    .tf-area::placeholder { color:#2e2e2e; }
+
+    .pill-group { display:flex; flex-wrap:wrap; gap:10px; }
+    .pill { background:var(--ink3); border:1px solid var(--ink5); border-radius:50px; padding:9px 20px; font-size:.84rem; color:var(--text-muted); cursor:pointer; transition:all .2s; user-select:none; font-family:'Outfit',sans-serif; }
+    .pill:hover { border-color:var(--gold-ring); color:var(--text); }
+    .pill.on { background:var(--gold-dim); border-color:var(--gold); color:var(--gold); }
+
+    .check-row { display:flex; align-items:flex-start; gap:12px; padding:13px 16px; background:var(--ink3); border:1px solid var(--ink5); border-radius:12px; margin-bottom:8px; cursor:pointer; transition:border-color .2s; }
+    .check-row.on { border-color:var(--gold); background:var(--gold-dim); }
+    .check-box { width:20px; height:20px; border:2px solid var(--ink5); border-radius:5px; flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; transition:all .2s; font-size:.6rem; color:#000; }
+    .check-row.on .check-box { background:var(--gold); border-color:var(--gold); }
+    .check-row.on .check-box::after { content:'✓'; }
+    .check-label { font-size:.87rem; color:var(--text-muted); line-height:1.5; }
+    .check-row.on .check-label { color:var(--text); }
+
+    .step-nav { display:flex; align-items:center; gap:10px; margin-top:26px; }
+    .btn-next { display:inline-flex; align-items:center; gap:8px; background:var(--gold); border:none; border-radius:8px; color:#000; font-family:'Outfit',sans-serif; font-size:.88rem; font-weight:600; padding:12px 24px; cursor:pointer; transition:background .2s, transform .15s var(--spring); letter-spacing:.03em; }
+    .btn-next:hover { background:var(--gold-lt); transform:translateX(3px); }
+    .btn-prev { background:none; border:1px solid var(--ink5); color:var(--text-muted); border-radius:8px; padding:11px 16px; font-size:.82rem; font-family:'Outfit',sans-serif; cursor:pointer; transition:all .2s; }
+    .btn-prev:hover { color:var(--text); }
+    .enter-hint { font-size:.68rem; color:#333; margin-top:10px; }
+    .enter-hint kbd { background:var(--ink4); border:1px solid var(--ink5); border-radius:4px; padding:1px 6px; font-size:.65rem; color:#555; }
+
+    .bottombar { display:flex; align-items:center; justify-content:center; padding:12px 28px; border-top:1px solid var(--ink3); flex-shrink:0; background:var(--ink2); }
+    .step-counter { font-size:.72rem; color:#333; letter-spacing:.08em; }
+    .step-counter b { color:var(--gold); font-weight:500; }
+
+    #thankyou { position:fixed; inset:0; z-index:20; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px; text-align:center; background:var(--ink); opacity:0; pointer-events:none; transition:opacity .5s var(--ease); }
+    #thankyou.visible { opacity:1; pointer-events:all; }
+    .ty-ring { width:80px; height:80px; border-radius:50%; border:1px solid var(--gold-ring); background:var(--gold-dim); display:flex; align-items:center; justify-content:center; margin:0 auto 28px; font-size:1.8rem; color:var(--gold); animation:ring-pop .6s var(--spring) both; }
+    @keyframes ring-pop { from{transform:scale(.4);opacity:0;} to{transform:scale(1);opacity:1;} }
+    .ty-h { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4.5vw,3rem); font-weight:700; color:#fff; margin-bottom:14px; }
+    .ty-p { font-size:.93rem; color:var(--text-muted); max-width:420px; line-height:1.7; margin-bottom:20px; }
+    .ty-verse { font-family:'Playfair Display',serif; font-style:italic; font-size:1rem; color:var(--gold); max-width:380px; line-height:1.65; margin-bottom:36px; }
+    .btn-gold  { background:var(--gold); border:none; border-radius:8px; color:#000; font-family:'Outfit',sans-serif; font-size:.88rem; font-weight:600; padding:12px 28px; cursor:pointer; transition:background .2s; margin:4px; }
+    .btn-ghost { background:none; border:1px solid var(--ink5); border-radius:8px; color:var(--text-muted); font-family:'Outfit',sans-serif; font-size:.88rem; padding:12px 28px; cursor:pointer; transition:all .2s; margin:4px; }
+    .btn-gold:hover  { background:var(--gold-lt); }
+    .btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+
+    @keyframes shake { 0%,100%{transform:translateX(0);} 20%,60%{transform:translateX(-6px);} 40%,80%{transform:translateX(6px);} }
+    .shake { animation:shake .35s var(--ease); }
+    @media(max-width:480px){ .topbar-label{display:none;} }
+  </style>
+</head>
+<body>
+
+<div id="shell">
+  <div class="topbar">
+    <div class="topbar-brand">SEGGC</div>
+    <div class="topbar-label">Plan a Visit</div>
+    <a class="btn-exit" href="index.html">← Back to Site</a>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="pFill"></div></div>
+  <div id="viewport"></div>
+  <div class="bottombar">
+    <span class="step-counter">Step <b id="sCur">1</b> of <b id="sTotal">7</b></span>
+  </div>
+</div>
+
+<div id="thankyou">
+  <div class="ty-ring"><i class="fas fa-church"></i></div>
+  <h2 class="ty-h">We're expecting you!</h2>
+  <p class="ty-p">Someone from our welcome team will reach out before your visit to make sure you feel right at home.</p>
+  <p class="ty-verse">"I was glad when they said to me, let us go to the house of the LORD." — Psalm 122:1</p>
+  <div>
+    <button class="btn-gold"  onclick="location.href='index.html'">Back to Website</button>
+    <button class="btn-ghost" onclick="restart()">Plan Another Visit</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var STEPS = [
+    { id:'vt_name',     q:'What\'s your <em>name?</em>',                         hint:'We love putting a name to the face we\'re welcoming.',   type:'text',      ph:'Your full name',       req:true  },
+    { id:'vt_email',    q:'Your <em>email address?</em>',                        hint:'We\'ll send you directions and what to expect.',         type:'email',     ph:'you@example.com',      req:true  },
+    { id:'vt_phone',    q:'Best <em>phone number</em> to reach you?',            hint:'So our welcome team can say hello before Sunday.',       type:'tel',       ph:'+234 000 000 0000',    req:true  },
+    { id:'vt_date',     q:'When are you planning to <em>visit?</em>',            hint:'Choose your preferred date.',                            type:'date',      req:true  },
+    { id:'vt_location', q:'Where are you <em>coming from?</em>',                 hint:'Your area or city — helps us send accurate directions.', type:'text',      ph:'e.g. Garki, Abuja',    req:false },
+    { id:'vt_group',    q:'Who are you <em>bringing along?</em>',                hint:'Select all that apply.',                                 type:'multicheck', req:false,
+      opts:[
+        { id:'g1', label:'Coming alone' },
+        { id:'g2', label:'Bringing my spouse / partner' },
+        { id:'g3', label:'Bringing children (we have a children\'s church!)' },
+        { id:'g4', label:'Coming with friends or a group' }
+      ]
+    },
+    { id:'vt_needs',    q:'Anything we should know to make your visit <em>special?</em>', hint:'Accessibility needs, questions, anything — optional.', type:'textarea', ph:'Let us know here…', req:false }
+  ];
+
+  var cur=0, answers={}, stepEls=[];
+  var viewport=document.getElementById('viewport');
+  var pFill=document.getElementById('pFill');
+  var sCur=document.getElementById('sCur');
+  var sTotal=document.getElementById('sTotal');
+  sTotal.textContent=STEPS.length;
+
+  function buildStep(s,idx){
+    var el=document.createElement('div'); el.className='step';
+    var isLast=idx===STEPS.length-1;
+    var h='<div class="step-eyebrow">'+(idx+1)+' / '+STEPS.length+'</div>';
+    h+='<h2 class="step-q">'+s.q+'</h2>';
+    if(s.hint) h+='<p class="step-hint">'+s.hint+'</p>';
+    if(s.type==='text'||s.type==='email'||s.type==='tel'){
+      h+='<input class="tf-line" type="'+s.type+'" id="f_'+s.id+'" placeholder="'+(s.ph||'')+'" autocomplete="off">';
+    } else if(s.type==='date'){
+      h+='<input class="tf-line" type="date" id="f_'+s.id+'">';
+    } else if(s.type==='textarea'){
+      h+='<textarea class="tf-area" id="f_'+s.id+'" placeholder="'+(s.ph||'')+'"></textarea>';
+    } else if(s.type==='multicheck'){
+      s.opts.forEach(function(o){
+        h+='<div class="check-row" data-id="'+o.id+'"><div class="check-box"></div><span class="check-label">'+o.label+'</span></div>';
+      });
+    }
+    h+='<div class="step-nav">';
+    if(idx>0) h+='<button class="btn-prev" onclick="prev()">↑ Back</button>';
+    h+='<button class="btn-next" onclick="next()">'+(isLast?'Submit <i class="fas fa-check"></i>':'OK <i class="fas fa-arrow-right"></i>')+'</button>';
+    h+='</div>';
+    if(!isLast && s.type!=='multicheck') h+='<p class="enter-hint">press <kbd>Enter ↵</kbd> to continue</p>';
+    el.innerHTML=h;
+    if(s.type==='multicheck'){
+      el.querySelectorAll('.check-row').forEach(function(r){
+        r.addEventListener('click',function(){r.classList.toggle('on');});
+      });
+    }
+    if(['text','email','tel','date'].indexOf(s.type)!==-1){
+      var inp=el.querySelector('#f_'+s.id);
+      if(inp) inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();next();}});
+    }
+    return el;
+  }
+
+  function init(){
+    cur=0; answers={}; stepEls=[]; viewport.innerHTML='';
+    STEPS.forEach(function(s,i){ var el=buildStep(s,i); viewport.appendChild(el); stepEls.push(el); });
+    show(0);
+  }
+
+  function show(idx){
+    stepEls.forEach(function(el,i){ el.classList.remove('active','gone'); if(i<idx) el.classList.add('gone'); });
+    stepEls[idx].classList.add('active');
+    cur=idx;
+    pFill.style.width=(idx/STEPS.length*100)+'%';
+    sCur.textContent=idx+1;
+    var s=STEPS[idx];
+    if(answers[s.id]!==undefined && s.type!=='multicheck'){
+      var inp=stepEls[idx].querySelector('#f_'+s.id);
+      if(inp) inp.value=answers[s.id];
+    }
+    var fi=stepEls[idx].querySelector('.tf-line,.tf-area');
+    if(fi) setTimeout(function(){fi.focus();},350);
+  }
+
+  window.next=function(){
+    var s=STEPS[cur], el=stepEls[cur], val;
+    if(s.type==='multicheck'){
+      val=Array.from(el.querySelectorAll('.check-row.on')).map(function(r){return r.dataset.id;});
+      answers[s.id]=val;
+    } else {
+      var inp=el.querySelector('#f_'+s.id); val=inp?inp.value.trim():''; answers[s.id]=val;
+    }
+    if(s.req){
+      var empty=Array.isArray(val)?val.length===0:val==='';
+      if(empty){
+        el.classList.add('shake');
+        el.addEventListener('animationend',function(){el.classList.remove('shake');},{once:true});
+        var t=el.querySelector('.tf-line,.tf-area');
+        if(t){t.style.borderBottomColor='#c94c4c';t.style.borderColor='#c94c4c';setTimeout(function(){t.style.borderBottomColor='';t.style.borderColor='';},900);}
+        return;
+      }
+    }
+    if(cur<STEPS.length-1){ show(cur+1); } else { submit(); }
+  };
+
+  window.prev=function(){ if(cur>0) show(cur-1); };
+
+  function submit(){
+    console.log('[Plan a Visit]', answers);
+    pFill.style.width='100%';
+    document.getElementById('shell').style.opacity='0';
+    document.getElementById('shell').style.pointerEvents='none';
+    document.getElementById('thankyou').classList.add('visible');
+  }
+
+  window.restart=function(){
+    document.getElementById('thankyou').classList.remove('visible');
+    document.getElementById('shell').style.opacity='1';
+    document.getElementById('shell').style.pointerEvents='all';
+    init();
+  };
+
+  document.addEventListener('keydown',function(e){
+    var s=STEPS[cur];
+    if(e.key==='Enter' && s.type!=='textarea' && s.type!=='multicheck'){ e.preventDefault(); next(); }
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>
