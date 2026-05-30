@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact Us — Strength Embassy Global Gospel Centre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Strength Embassy Global Gospel Centre (Blessed Nation) — prayer requests, visit planning, and church location.">
+
+  <link href="img/favicon.ico" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    body { background: #f8f7f4; }
+
+    /* ── Page Header ── */
+    .contact-header {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(var(--bs-primary-rgb), 0.2) 0%, transparent 60%);
+    }
+    .contact-header h1 { font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.08em; }
+
+    /* ── Form tabs ── */
+    .form-tabs { border-bottom: 2px solid #e8e8e8; }
+    .form-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .form-tab-btn.active { color: var(--bs-primary); border-bottom-color: var(--bs-primary); }
+    .form-tab-btn:hover:not(.active) { color: #333; }
+
+    /* ── Info card ── */
+    .info-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      padding: 28px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(var(--bs-primary-rgb), 0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--bs-primary);
+      font-size: 1.1rem;
+    }
+    .info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #aaa; margin-bottom: 2px; }
+    .info-value { font-size: 0.95rem; font-weight: 600; color: #1a1a1a; margin: 0; }
+    .info-sub { font-size: 0.78rem; color: #888; margin: 0; }
+
+    /* ── Service times ── */
+    .service-time-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+    .service-time-row:last-child { border-bottom: none; }
+    .service-time-row .day { font-weight: 600; color: #333; }
+    .service-time-row .time-badge {
+      background: rgba(var(--bs-primary-rgb), 0.1);
+      color: var(--bs-primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── Map section ── */
+    .map-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    }
+
+    /* ── Social links ── */
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all .2s;
+    }
+    .social-link:hover { border-color: var(--bs-primary); color: var(--bs-primary); transform: translateX(4px); }
+    .social-link i { font-size: 1.1rem; width: 24px; }
+
+    .section-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bs-primary); }
+
+    /* ── Form card ── */
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    .form-card-header {
+      background: linear-gradient(90deg, #0d0d0d, #1a1a2e);
+      padding: 20px 24px;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Spinner -->
+  <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width:3rem;height:3rem;" role="status"><span class="sr-only">Loading...</span></div>
+  </div>
+
+  <!-- ── NAVBAR (injected by components.js) ── -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="contact-header text-center position-relative">
+    <div class="container position-relative">
+      <p class="section-eyebrow text-primary mb-2">We're Here For You</p>
+      <h1 class="display-5 text-white text-uppercase mb-2">Contact Us</h1>
+      <p class="text-secondary mb-0">Reach out for prayer, your first visit, or any questions</p>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="container py-5">
+    <div class="row g-5">
+
+      <!-- LEFT: Forms -->
+      <div class="col-lg-7">
+        <div class="form-card">
+          <div class="form-card-header">
+            <h5 class="mb-0 fw-bold">How Can We Help?</h5>
+            <p class="text-secondary small mb-0 mt-1">Select the type of request below</p>
+          </div>
+
+          <!-- Tab switcher -->
+          <div class="form-tabs d-flex px-4 pt-3">
+            <button class="form-tab-btn active" onclick="showFormTab('prayer', this)">🙏 Prayer Request</button>
+            <button class="form-tab-btn" onclick="showFormTab('visit', this)">📍 Plan A Visit</button>
+            <button class="form-tab-btn" onclick="showFormTab('message', this)">✉️ Send Message</button>
+          </div>
+
+          <div class="p-4">
+
+            <!-- Tab: Prayer Request -->
+            <div id="form-prayer">
+              <p class="text-muted small mb-4">Share your prayer need and our prayer team will stand in agreement with you. Every request is treated with care and confidentiality.</p>
+              <form onsubmit="handleContactForm(event, 'Prayer Request')">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Your full name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" placeholder="your@email.com" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="+234 000 000 0000">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Prayer Category</label>
+                    <select class="form-select">
+                      <option value="">Select a category…</option>
+                      <option>Healing & Health</option>
+                      <option>Financial Breakthrough</option>
+                      <option>Family & Relationships</option>
+                      <option>Salvation of Loved Ones</option>
+                      <option>Career & Business</option>
+                      <option>Spiritual Growth</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Your Prayer Request</label>
+                    <textarea class="form-control" rows="5" placeholder="Share your prayer need in detail…" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="prayerConsent">
+                      <label class="form-check-label small text-muted" for="prayerConsent">
+                        I consent to having my request shared with the prayer team (anonymously if preferred)
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Submit Prayer Request</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Tab: Plan A Visit -->
+            <div id="form-visit" class="d-none">
+              <p class="text-muted small mb-4">Planning to visit SEGGC for the first time? Fill in your details and we'll personally welcome you and help you feel at home.</p>
+              <form onsubmit="handleContactForm(event, 'Visit Plan')">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Your full name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" placeholder="your@email.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="+234 000 000 0000" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Preferred Visit Date</label>
+                    <input type="date" class="form-control" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Service You Want to Attend</label>
+                    <select class="form-select">
+                      <option>Sunday Worship — 9:00 AM</option>
+                      <option>Midweek Service — Wednesday 5:00 PM</option>
+                      <option>Prayer Meeting — Friday 6:00 PM</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Country</label>
+                    <input type="text" class="form-control" placeholder="Nigeria">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">State / City</label>
+                    <input type="text" class="form-control" placeholder="Abuja">
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Do You Need Directions? <span class="text-muted fw-normal">(optional)</span></label>
+                    <textarea class="form-control" rows="2" placeholder="Tell us your closest landmark or area and we'll send directions…"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Plan My Visit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Tab: Send Message -->
+            <div id="form-message" class="d-none">
+              <p class="text-muted small mb-4">Have a question, feedback, or just want to reach us? We read every message and respond within 24–48 hours.</p>
+              <form onsubmit="handleContactForm(event, 'General Message')">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Full Name</label>
+                    <input type="text" class="form-control" placeholder="Your full name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Email Address</label>
+                    <input type="email" class="form-control" placeholder="your@email.com" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Subject</label>
+                    <input type="text" class="form-control" placeholder="What is this about?" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Your Message</label>
+                    <textarea class="form-control" rows="6" placeholder="Write your message here…" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /col-lg-7 -->
+
+      <!-- RIGHT: Church info -->
+      <div class="col-lg-5">
+
+        <!-- Contact Info -->
+        <div class="info-card mb-4">
+          <p class="section-eyebrow mb-3">Church Details</p>
+          <div class="info-row">
+            <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <p class="info-label">Location</p>
+              <p class="info-value">Abuja, Nigeria</p>
+              <p class="info-sub">Full address to be updated</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <p class="info-label">Phone / WhatsApp</p>
+              <p class="info-value">+234 (0) 800 000 0000</p>
+              <p class="info-sub">Mon – Sat, 9:00 AM – 6:00 PM WAT</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <p class="info-label">Email</p>
+              <p class="info-value">info@seggc.org</p>
+              <p class="info-sub">Response within 24–48 hours</p>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon"><i class="bi bi-globe"></i></div>
+            <div>
+              <p class="info-label">Online Services</p>
+              <p class="info-value">YouTube Live Every Sunday</p>
+              <p class="info-sub">9:00 AM WAT (UTC+1)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Times -->
+        <div class="info-card mb-4">
+          <p class="section-eyebrow mb-3">Service Schedule</p>
+          <div class="service-time-row">
+            <div>
+              <span class="day">Sunday</span>
+              <p class="text-muted small mb-0">Worship Experience</p>
+            </div>
+            <span class="time-badge">9:00 AM</span>
+          </div>
+          <div class="service-time-row">
+            <div>
+              <span class="day">Wednesday</span>
+              <p class="text-muted small mb-0">Midweek Service</p>
+            </div>
+            <span class="time-badge">5:00 PM</span>
+          </div>
+          <div class="service-time-row">
+            <div>
+              <span class="day">Friday</span>
+              <p class="text-muted small mb-0">Prayer Meeting</p>
+            </div>
+            <span class="time-badge">6:00 PM</span>
+          </div>
+        </div>
+
+        <!-- Social links -->
+        <div>
+          <p class="section-eyebrow mb-3">Follow Us</p>
+          <div class="d-flex flex-column gap-2">
+            <a href="#!" class="social-link"><i class="fab fa-youtube text-danger"></i> YouTube — Watch Live Streams</a>
+            <a href="#!" class="social-link"><i class="fab fa-facebook-f text-primary"></i> Facebook — SEGGC Official</a>
+            <a href="#!" class="social-link"><i class="fab fa-instagram" style="color:#e1306c;"></i> Instagram — @seggc</a>
+            <a href="#!" class="social-link"><i class="fab fa-x-twitter"></i> X (Twitter) — @seggc</a>
+            <a href="#!" class="social-link"><i class="fab fa-whatsapp text-success"></i> WhatsApp Community</a>
+          </div>
+        </div>
+
+      </div><!-- /col-lg-5 -->
+
+    </div><!-- /row -->
+
+    <!-- ── MAP ── -->
+    <div class="mt-5">
+      <p class="section-eyebrow mb-2">Find Us</p>
+      <h4 class="fw-bold mb-4">Our Location</h4>
+      <div class="map-wrapper">
+        <!--
+          DEVELOPER NOTE:
+          Replace this Google Maps embed with your actual church address.
+          Go to maps.google.com > search your address > Share > Embed a map > Copy HTML.
+          The src URL below is a placeholder pointing to Abuja.
+        -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252259.06018370888!2d7.294494!3d9.072264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1685000000000!5m2!1sen!2sng"
+          width="100%"
+          height="400"
+          style="border:0; display:block; filter: grayscale(20%);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="SEGGC Location Map">
+        </iframe>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <!-- ── FOOTER (injected by components.js) ── -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    // ── Form Tab Switcher ─────────────────────────────────────────────────────
+    function showFormTab(tabId, btn) {
+      ['prayer', 'visit', 'message'].forEach(t => document.getElementById('form-' + t).classList.add('d-none'));
+      document.querySelectorAll('.form-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('form-' + tabId).classList.remove('d-none');
+      btn.classList.add('active');
+    }
+
+    // ── Form Submission Handler ───────────────────────────────────────────────
+    // DEVELOPER NOTE:
+    // These forms currently show a success message but don't actually send data.
+    // To wire them up, use one of these approaches:
+    //   Option A (simplest): Formspree.io — free, no backend needed.
+    //     Change <form> to <form action="https://formspree.io/f/YOUR_ID" method="POST">
+    //   Option B: EmailJS — free tier, sends emails directly from JS.
+    //   Option C: Your own Node.js/Express backend with nodemailer.
+    // Ask Claude to build any of these when you're ready.
+    function handleContactForm(event, type) {
+      event.preventDefault();
+      const btn = event.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = '✓ Submitted! We\'ll be in touch.';
+        btn.classList.replace('btn-primary', 'btn-success');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.replace('btn-success', 'btn-primary');
+          btn.disabled = false;
+          event.target.reset();
+        }, 4000);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Media — Strength Embassy Global Gospel Centre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Watch live services, sermons, and media content from Strength Embassy Global Gospel Centre (Blessed Nation).">
+
+  <link href="img/favicon.ico" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    /* ── Media Page Styles ── */
+    .media-page-header {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 60%, #16213e 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(var(--bs-primary-rgb), 0.15) 0%, transparent 60%);
+    }
+    .media-page-header h1 { font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.08em; }
+
+    /* Live badge pulse */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dc3545;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .live-badge .dot {
+      width: 8px; height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 1.4s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+
+    /* Video player wrapper */
+    .video-card {
+      background: #0d0d0d;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .stream-meta { background: #111; border-top: 1px solid rgba(255,255,255,0.07); }
+    .stream-meta .quality-btn {
+      font-size: 0.78rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #aaa;
+      background: transparent;
+      transition: all .2s;
+    }
+    .stream-meta .quality-btn:hover,
+    .stream-meta .quality-btn.active { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+
+    /* Countdown */
+    .countdown-strip {
+      background: linear-gradient(90deg, #0d0d0d, #1a1a2e);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .time-box { text-align: center; min-width: 64px; }
+    .time-box h2 { font-family: 'Josefin Sans', sans-serif; font-size: 2rem; color: var(--bs-primary); margin:0; }
+    .time-box span { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
+    .time-divider { font-size: 1.6rem; color: rgba(255,255,255,0.2); line-height: 1; padding-bottom: 14px; }
+
+    /* Sidebar interaction panel */
+    .interaction-panel {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .interaction-panel .panel-tab {
+      flex: 1;
+      padding: 12px 8px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #888;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all .2s;
+      cursor: pointer;
+    }
+    .interaction-panel .panel-tab.active {
+      color: var(--bs-primary);
+      border-bottom-color: var(--bs-primary);
+    }
+    .interaction-panel .panel-body { padding: 20px; }
+    .interaction-panel .form-control {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ddd;
+      font-size: 0.875rem;
+    }
+    .interaction-panel .form-control::placeholder { color: #555; }
+    .interaction-panel .form-control:focus {
+      background: #1a1a1a;
+      border-color: var(--bs-primary);
+      color: #ddd;
+      box-shadow: 0 0 0 3px rgba(var(--bs-primary-rgb), 0.15);
+    }
+    .interaction-panel .form-label { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Sermon archive */
+    .sermon-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      transition: all .25s;
+    }
+    .sermon-card:hover { border-color: var(--bs-primary); transform: translateY(-2px); }
+    .sermon-thumb {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(255,255,255,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .sermon-thumb .play-btn {
+      position: absolute;
+      width: 48px; height: 48px;
+      background: rgba(var(--bs-primary-rgb), 0.9);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      transition: transform .2s;
+    }
+    .sermon-card:hover .play-btn { transform: scale(1.1); }
+    .sermon-title { font-size: 0.9rem; font-weight: 600; color: #e8e8e8; line-height: 1.4; }
+    .sermon-meta { font-size: 0.75rem; color: #666; }
+
+    /* Section titles */
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bs-primary);
+    }
+    .section-title {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 1.75rem;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body style="background:#0a0a0a;">
+
+  <!-- Spinner -->
+  <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width:3rem;height:3rem;" role="status"><span class="sr-only">Loading...</span></div>
+  </div>
+
+  <!-- ── NAVBAR (injected by components.js) ── -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="media-page-header text-center position-relative">
+    <div class="container position-relative">
+      <p class="section-eyebrow mb-2">Watch & Listen</p>
+      <h1 class="display-5 text-white text-uppercase mb-2">Media Centre</h1>
+      <p class="text-secondary">Live services, sermons, and teachings from SEGGC</p>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="container-fluid py-5" style="background:#0a0a0a;">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- LEFT: Video Player -->
+        <div class="col-lg-8">
+
+          <!-- Live / VOD label -->
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <span class="live-badge" id="liveBadge"><span class="dot"></span> Live</span>
+            <span class="text-secondary small" id="streamStatus">Sunday Worship Experience</span>
+          </div>
+
+          <!-- Video embed -->
+          <div class="video-card">
+            <div class="ratio ratio-16x9">
+              <!--
+                DEVELOPER NOTE:
+                Replace YOUR_CHANNEL_ID below with your actual YouTube channel ID.
+                For live streams, use: https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID
+                For a specific video:  https://www.youtube.com/embed/VIDEO_ID
+                Get your channel ID from YouTube Studio > Settings > Channel > Advanced Settings.
+              -->
+              <iframe
+                id="liveStream"
+                src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID&autoplay=0&rel=0"
+                title="SEGGC Live Stream"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <!-- Stream quality + meta -->
+            <div class="stream-meta p-3">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                <div>
+                  <p class="text-white fw-semibold mb-0 small">Streaming Quality</p>
+                  <p class="text-secondary mb-0" style="font-size:0.75rem;">Auto-select or choose based on your connection</p>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                  <button class="quality-btn active" data-quality="auto">Auto</button>
+                  <button class="quality-btn" data-quality="1080p">1080p HD</button>
+                  <button class="quality-btn" data-quality="720p">720p</button>
+                  <button class="quality-btn" data-quality="480p">480p</button>
+                  <button class="quality-btn" data-quality="360p">360p</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Countdown to next service -->
+          <div class="countdown-strip rounded-3 p-4 mt-4">
+            <div class="row align-items-center">
+              <div class="col-md-5 mb-3 mb-md-0">
+                <p class="section-eyebrow mb-1">Next Service</p>
+                <h5 class="text-white mb-1">Sunday Worship Experience</h5>
+                <p class="text-secondary small mb-0"><i class="bi bi-clock me-1"></i> Starts at 9:00 AM (WAT)</p>
+              </div>
+              <div class="col-md-7">
+                <div class="d-flex align-items-end justify-content-md-end justify-content-center gap-1">
+                  <div class="time-box"><h2 id="cd-days">00</h2><span>Days</span></div>
+                  <span class="time-divider mb-1">:</span>
+                  <div class="time-box"><h2 id="cd-hours">00</h2><span>Hours</span></div>
+                  <span class="time-divider mb-1">:</span>
+                  <div class="time-box"><h2 id="cd-minutes">00</h2><span>Mins</span></div>
+                  <span class="time-divider mb-1">:</span>
+                  <div class="time-box"><h2 id="cd-seconds">00</h2><span>Secs</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /col-lg-8 -->
+
+        <!-- RIGHT: Interaction Panel -->
+        <div class="col-lg-4">
+          <div class="interaction-panel h-100">
+
+            <!-- Tab switcher -->
+            <div class="d-flex border-bottom border-dark" role="tablist">
+              <button class="panel-tab active" onclick="showTab('testimony', this)">Testimony</button>
+              <button class="panel-tab" onclick="showTab('firsttimer', this)">First Timer</button>
+              <button class="panel-tab" onclick="showTab('bornagain', this)">Born Again</button>
+            </div>
+
+            <!-- Tab: Testimony -->
+            <div class="panel-body" id="tab-testimony">
+              <p class="text-secondary small mb-3">We'd love to hear how God has been working in your life.</p>
+              <form onsubmit="handleForm(event, 'testimony')">
+                <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-control" placeholder="+234 000 000 0000">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Your Testimony</label>
+                  <textarea class="form-control" rows="5" placeholder="Share what God has done…" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit Testimony</button>
+              </form>
+            </div>
+
+            <!-- Tab: First Timer -->
+            <div class="panel-body d-none" id="tab-firsttimer">
+              <p class="text-secondary small mb-3">Welcome! We're excited to have you. Let us know you were here.</p>
+              <form onsubmit="handleForm(event, 'firsttimer')">
+                <div class="mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-control" placeholder="+234 000 000 0000">
+                </div>
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <label class="form-label">Country</label>
+                    <input type="text" class="form-control" placeholder="Nigeria">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label">State</label>
+                    <input type="text" class="form-control" placeholder="Abuja">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Town / City</label>
+                  <input type="text" class="form-control" placeholder="Your town or city">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Register as First Timer</button>
+              </form>
+            </div>
+
+            <!-- Tab: Born Again -->
+            <div class="panel-body d-none" id="tab-bornagain">
+              <p class="text-secondary small mb-3">Did you give your life to Christ today? Tell us — Heaven is rejoicing!</p>
+              <form onsubmit="handleForm(event, 'bornagain')">
+                <div class="mb-3">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-control" placeholder="+234 000 000 0000">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Your Story</label>
+                  <textarea class="form-control" rows="5" placeholder="Share how you met Jesus today…" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Share My Decision</button>
+              </form>
+            </div>
+
+          </div>
+        </div><!-- /col-lg-4 -->
+
+      </div><!-- /row -->
+
+      <!-- ── SERMON ARCHIVE ── -->
+      <div class="mt-5 pt-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <div>
+            <p class="section-eyebrow mb-1">On Demand</p>
+            <h2 class="section-title mb-0">Recent Sermons</h2>
+          </div>
+          <a href="https://www.youtube.com/@SEGGC" target="_blank" class="btn btn-outline-primary btn-sm px-4">
+            View All <i class="fab fa-youtube ms-1"></i>
+          </a>
+        </div>
+
+        <div class="row g-3">
+          <!--
+            DEVELOPER NOTE:
+            These sermon cards are static placeholders.
+            When you're ready to scale, replace these with data fetched from
+            the YouTube Data API v3 (search.list endpoint) to auto-populate
+            your latest uploads. Ask Claude to help you build that integration.
+          -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="sermon-card p-3">
+              <div class="sermon-thumb mb-3">
+                <i class="bi bi-play-circle"></i>
+                <div class="play-btn"><i class="bi bi-play-fill"></i></div>
+              </div>
+              <p class="sermon-title">The Power of Righteousness</p>
+              <p class="sermon-meta mt-1"><i class="bi bi-calendar3 me-1"></i>Sunday, 25 May 2026</p>
+              <p class="sermon-meta"><i class="bi bi-person me-1"></i>Pastor Chibuike Divine Nwafor</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="sermon-card p-3">
+              <div class="sermon-thumb mb-3">
+                <i class="bi bi-play-circle"></i>
+                <div class="play-btn"><i class="bi bi-play-fill"></i></div>
+              </div>
+              <p class="sermon-title">Living in God's Covenant Reality</p>
+              <p class="sermon-meta mt-1"><i class="bi bi-calendar3 me-1"></i>Wednesday, 21 May 2026</p>
+              <p class="sermon-meta"><i class="bi bi-person me-1"></i>Pastor Chibuike Divine Nwafor</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="sermon-card p-3">
+              <div class="sermon-thumb mb-3">
+                <i class="bi bi-play-circle"></i>
+                <div class="play-btn"><i class="bi bi-play-fill"></i></div>
+              </div>
+              <p class="sermon-title">Walking in the Supernatural</p>
+              <p class="sermon-meta mt-1"><i class="bi bi-calendar3 me-1"></i>Sunday, 18 May 2026</p>
+              <p class="sermon-meta"><i class="bi bi-person me-1"></i>Pastor Chibuike Divine Nwafor</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="sermon-card p-3">
+              <div class="sermon-thumb mb-3">
+                <i class="bi bi-play-circle"></i>
+                <div class="play-btn"><i class="bi bi-play-fill"></i></div>
+              </div>
+              <p class="sermon-title">Faith: The Believer's Ultimate Shield</p>
+              <p class="sermon-meta mt-1"><i class="bi bi-calendar3 me-1"></i>Sunday, 11 May 2026</p>
+              <p class="sermon-meta"><i class="bi bi-person me-1"></i>Pastor Chibuike Divine Nwafor</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /sermon archive -->
+
+    </div><!-- /container -->
+  </div><!-- /section -->
+
+  <!-- ── FOOTER (injected by components.js) ── -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- JS Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Component loader — must come after Bootstrap -->
+  <script src="js/components.js"></script>
+
+  <script>
+    // ── Panel Tab Switcher ────────────────────────────────────────────────────
+    function showTab(tabId, btn) {
+      // Hide all tab bodies
+      document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.add('d-none'));
+      // Deactivate all tab buttons
+      document.querySelectorAll('.panel-tab').forEach(el => el.classList.remove('active'));
+      // Show selected
+      document.getElementById('tab-' + tabId).classList.remove('d-none');
+      btn.classList.add('active');
+    }
+
+    // ── Form submission handler (placeholder — wire up to your backend later) ─
+    function handleForm(event, type) {
+      event.preventDefault();
+      const btn = event.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      // TODO: Replace with real fetch() POST to your backend / Formspree / EmailJS
+      setTimeout(() => {
+        btn.textContent = '✓ Submitted!';
+        btn.classList.replace('btn-primary', 'btn-success');
+        setTimeout(() => { btn.textContent = original; btn.classList.replace('btn-success','btn-primary'); btn.disabled = false; event.target.reset(); }, 3000);
+      }, 1200);
+    }
+
+    // ── Quality Button Toggle ─────────────────────────────────────────────────
+    document.querySelectorAll('.quality-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.quality-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // NOTE: YouTube iframes don't expose quality control via JS.
+        // This UI is visual feedback only. For granular quality control,
+        // consider using the YouTube IFrame Player API with setPlaybackQuality().
+      });
+    });
+
+    // ── Countdown to next Sunday 9:00 AM WAT ─────────────────────────────────
+    function updateCountdown() {
+      const now = new Date();
+      // WAT is UTC+1
+      const nowWAT = new Date(now.getTime() + (1 * 60 * 60 * 1000));
+      const day = nowWAT.getUTCDay(); // 0=Sun
+
+      // Find next Sunday
+      let daysUntilSunday = (7 - day) % 7;
+      if (daysUntilSunday === 0 && nowWAT.getUTCHours() >= 9) daysUntilSunday = 7; // past service today
+
+      const nextSunday = new Date(nowWAT);
+      nextSunday.setUTCDate(nowWAT.getUTCDate() + daysUntilSunday);
+      nextSunday.setUTCHours(9, 0, 0, 0);
+
+      const diff = nextSunday - nowWAT;
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('cd-days').textContent = pad(d);
+      document.getElementById('cd-hours').textContent = pad(h);
+      document.getElementById('cd-minutes').textContent = pad(m);
+      document.getElementById('cd-seconds').textContent = pad(s);
+
+      // If it's Sunday morning, show LIVE badge
+      if (day === 0 && nowWAT.getUTCHours() >= 9 && nowWAT.getUTCHours() < 13) {
+        document.getElementById('liveBadge').style.display = 'inline-flex';
+        document.getElementById('streamStatus').textContent = 'Service is LIVE now — Join us!';
+      } else {
+        document.getElementById('liveBadge').style.display = 'none';
+        document.getElementById('streamStatus').textContent = 'Sunday Worship Experience';
+      }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

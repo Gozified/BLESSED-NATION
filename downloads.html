@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Downloads — Audio Messages | STRENGTH EMBASSY GLOBAL GOSPEL CENTRE</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="audio messages, sermons, downloads, Strength Embassy Gospel Centre" name="keywords">
+    <meta content="Download audio messages and sermon series from Strength Embassy Global Gospel Centre" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-dim: rgba(201,168,76,0.15);
+            --dark: #0e0e0e;
+            --dark-2: #161616;
+            --dark-3: #1e1e1e;
+            --dark-4: #262626;
+            --text-muted-custom: #888;
+            --radius: 10px;
+        }
+
+        /* ── Page background ── */
+        body {
+            background: var(--dark);
+            color: #e8e8e8;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        /* ── Page header banner ── */
+        .downloads-hero {
+            background: linear-gradient(135deg, #0e0e0e 0%, #1a1200 60%, #0e0e0e 100%);
+            border-bottom: 2px solid var(--gold-dim);
+            padding: 80px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .downloads-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 50% 110%, rgba(201,168,76,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .downloads-hero h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .downloads-hero h1 span { color: var(--gold); }
+        .downloads-hero p { color: #bbb; font-size: 1rem; }
+
+        /* ── Search & filter bar ── */
+        .filter-bar {
+            background: var(--dark-2);
+            border-bottom: 1px solid #2a2a2a;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .search-wrap {
+            position: relative;
+        }
+        .search-wrap .bi-search {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 0.95rem;
+        }
+        #searchInput {
+            background: var(--dark-3);
+            border: 1px solid #333;
+            color: #eee;
+            border-radius: var(--radius);
+            padding: 10px 14px 10px 38px;
+            width: 100%;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: var(--dark-4);
+        }
+        #searchInput::placeholder { color: #555; }
+
+        .filter-pill {
+            background: var(--dark-3);
+            border: 1px solid #333;
+            color: #aaa;
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-size: 0.8rem;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .filter-pill:hover,
+        .filter-pill.active {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #000;
+        }
+        .results-count {
+            color: var(--text-muted-custom);
+            font-size: 0.82rem;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 0.04em;
+        }
+        .results-count span { color: var(--gold); }
+
+        /* ── Series section header ── */
+        .series-section { margin-bottom: 56px; }
+        .series-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .series-icon {
+            width: 44px; height: 44px;
+            background: var(--gold-dim);
+            border: 1px solid rgba(201,168,76,0.35);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .series-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+        }
+        .series-count {
+            margin-left: auto;
+            background: var(--dark-3);
+            border: 1px solid #333;
+            color: var(--gold);
+            border-radius: 50px;
+            padding: 3px 12px;
+            font-size: 0.75rem;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        /* ── Message card ── */
+        .msg-card {
+            background: var(--dark-2);
+            border: 1px solid #242424;
+            border-radius: var(--radius);
+            transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+            overflow: hidden;
+        }
+        .msg-card:hover {
+            border-color: rgba(201,168,76,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .msg-card.is-playing {
+            border-color: var(--gold) !important;
+            box-shadow: 0 0 0 1px var(--gold), 0 8px 30px rgba(201,168,76,0.15);
+        }
+
+        .card-top {
+            padding: 16px 16px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .track-num {
+            width: 32px; height: 32px;
+            background: var(--dark-4);
+            border: 1px solid #333;
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.75rem;
+            color: #666;
+            flex-shrink: 0;
+        }
+        .msg-card.is-playing .track-num {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #000;
+        }
+        .msg-meta { flex: 1; min-width: 0; }
+        .msg-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: #eee;
+            margin: 0 0 4px;
+            line-height: 1.3;
+            /* ellipsis for long titles */
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .msg-card.is-playing .msg-title { color: var(--gold); }
+        .msg-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: #666;
+        }
+        .msg-details i { color: var(--gold); margin-right: 3px; font-size: 0.7rem; }
+
+        /* ── Inline audio player ── */
+        .card-player {
+            padding: 12px 16px 14px;
+        }
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-play {
+            width: 36px; height: 36px;
+            background: var(--gold);
+            border: none;
+            border-radius: 50%;
+            color: #000;
+            font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.15s, background 0.15s;
+        }
+        .btn-play:hover { transform: scale(1.1); background: var(--gold-light); }
+        .btn-play.playing { background: var(--gold-light); }
+
+        .progress-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .progress-bar-outer {
+            height: 4px;
+            background: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s linear;
+            pointer-events: none;
+        }
+        .time-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.68rem;
+            color: #555;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Download button ── */
+        .btn-dl {
+            width: 36px; height: 36px;
+            background: var(--dark-4);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #aaa;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-dl:hover {
+            background: var(--gold-dim);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ── Now-playing sticky bar ── */
+        #nowPlayingBar {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #111;
+            border-top: 2px solid var(--gold);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #nowPlayingBar.visible { transform: translateY(0); }
+        .np-title {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 260px;
+        }
+        .np-sub {
+            font-size: 0.72rem;
+            color: #666;
+            white-space: nowrap;
+        }
+        .np-progress-outer {
+            flex: 1;
+            height: 4px;
+            background: #333;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .np-progress-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 4px;
+            width: 0%;
+            pointer-events: none;
+        }
+        .np-time { font-size: 0.72rem; color: #666; font-variant-numeric: tabular-nums; }
+        .btn-np-play {
+            width: 38px; height: 38px;
+            background: var(--gold);
+            border: none;
+            border-radius: 50%;
+            color: #000;
+            font-size: 0.95rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .btn-np-close {
+            background: none;
+            border: none;
+            color: #555;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 4px;
+            flex-shrink: 0;
+            transition: color 0.2s;
+        }
+        .btn-np-close:hover { color: #fff; }
+
+        /* ── Empty state ── */
+        #emptyState {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        #emptyState i { font-size: 3rem; color: #333; display: block; margin-bottom: 16px; }
+        #emptyState p { color: #555; font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.05em; }
+
+        /* ── Misc helpers ── */
+        .tag-badge {
+            display: inline-block;
+            background: var(--dark-4);
+            border: 1px solid #333;
+            border-radius: 4px;
+            font-size: 0.68rem;
+            color: #777;
+            padding: 1px 7px;
+            font-family: 'Josefin Sans', sans-serif;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .tag-badge.new { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); color: var(--gold); }
+        .tag-badge.featured { background: rgba(255,60,60,0.1); border-color: rgba(255,60,60,0.3); color: #ff7070; }
+
+        /* ── Volume ── */
+        .np-volume {
+            display: flex; align-items: center; gap: 6px;
+        }
+        .np-volume i { color: #555; font-size: 0.85rem; }
+        #volumeSlider {
+            width: 70px;
+            accent-color: var(--gold);
+            cursor: pointer;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* pill scroll on mobile */
+        .pill-scroll {
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none;
+        }
+        .pill-scroll::-webkit-scrollbar { display: none; }
+        .pill-row { display: flex; gap: 8px; flex-wrap: nowrap; }
+
+        /* hide series when all cards hidden */
+        .series-section.all-hidden { display: none; }
+
+        /* card hidden by filter */
+        .msg-card[data-hidden="true"] { display: none; }
+
+        @media (max-width: 576px) {
+            .np-title { max-width: 140px; }
+            .np-volume { display: none; }
+            #volumeSlider { display: none; }
+        }
+
+        /* small loading bar animation */
+        @keyframes pulse-bar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .is-playing .progress-bar-fill { animation: none; }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+  <!-- ── NAVBAR (injected by components.js) ── -->
+  <div id="navbar-placeholder"></div>
+    <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+    <!-- <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-wrap custom-nav-brand ms-4 ms-lg-0 size">
+                <img src="img/LOGO.png" width="80px" height="80px" class="me-2">
+                <span class="fw-bold lh-sm fs-6">STRENGTH EMBASSY GLOBAL GOSPEL CENTRE (BLESSED NATION)</span>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="service.html" class="nav-item nav-link">The Mandate</a>
+                    <a href="service.html" class="nav-item nav-link">Christian Family</a>
+                    <a href="media.html" class="nav-item nav-link">Media</a>
+                    <a href="downloads.html" class="nav-item nav-link active">Downloads</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    <a href="give.html" class="nav-item nav-link">Give Online</a>
+                </div>
+            </div>
+        </nav>
+    </div> -->
+
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <div class="downloads-hero mt-5">
+        <div class="container text-center">
+            <p class="text-uppercase mb-2" style="letter-spacing:.2em;font-size:.78rem;color:var(--gold);font-family:'Josefin Sans',sans-serif;">Audio Messages</p>
+            <h1>Download <span>The Word</span></h1>
+            <p class="mt-3 mx-auto" style="max-width:560px;">
+                Listen inline or download sermon series and standalone messages from Pastor Divine C. Nwafor. Every message is freely available — let the Word work.
+            </p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════ FILTER BAR ═══════════════════════ -->
+    <div class="filter-bar">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-4 col-12">
+                    <div class="search-wrap">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search messages, topics, speakers…">
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="pill-scroll">
+                        <div class="pill-row" id="pillRow">
+                            <button class="filter-pill active" data-series="all">All Series</button>
+                            <button class="filter-pill" data-series="strength-pillars">13 Pillars</button>
+                            <button class="filter-pill" data-series="holy-ghost">Holy Ghost</button>
+                            <button class="filter-pill" data-series="purpose">Purpose & Vision</button>
+                            <button class="filter-pill" data-series="family">Christian Family</button>
+                            <button class="filter-pill" data-series="faith">Faith & Healing</button>
+                            <button class="filter-pill" data-series="standalone">Standalone</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-12 text-md-end">
+                    <span class="results-count">Showing <span id="visibleCount">0</span> messages</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+    <div class="container py-5" style="padding-bottom:90px!important;" id="mainContent">
+
+        <div id="emptyState">
+            <i class="bi bi-music-note-list"></i>
+            <p>No messages match your search. Try a different keyword.</p>
+        </div>
+
+        <!-- ── SERIES 1: 13 Pillars ── -->
+        <div class="series-section" data-series-id="strength-pillars">
+            <div class="series-header">
+                <div class="series-icon"><i class="fas fa-columns"></i></div>
+                <h2 class="series-title">13 Pillars of Strength Embassy</h2>
+                <span class="series-count" data-series-label="strength-pillars">5 messages</span>
+            </div>
+            <div class="row g-3" id="series-strength-pillars">
+
+                <div class="col-lg-6 col-12 msg-item" data-series="strength-pillars"
+                     data-title="The Pillar of the Word" data-speaker="Pst Divine C Nwafor" data-date="Mar 2025" data-duration="58:24">
+                    <div class="msg-card" data-audio="audio/13pillars-01.mp3">
+                        <div class="card-top">
+                            <div class="track-num">01</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">The Pillar of the Word</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Mar 2025</span>
+                                    <span><i class="fas fa-clock"></i>58:24</span>
+                                    <span class="tag-badge featured">Foundation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">58:24</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/13pillars-01.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="strength-pillars"
+                     data-title="Prayer: The Believer's Lifeline" data-speaker="Pst Divine C Nwafor" data-date="Mar 2025" data-duration="1:04:11">
+                    <div class="msg-card" data-audio="audio/13pillars-02.mp3">
+                        <div class="card-top">
+                            <div class="track-num">02</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Prayer: The Believer's Lifeline</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Mar 2025</span>
+                                    <span><i class="fas fa-clock"></i>1:04:11</span>
+                                    <span class="tag-badge new">New</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:04:11</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/13pillars-02.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="strength-pillars"
+                     data-title="Consecration: A Life Set Apart" data-speaker="Pst Divine C Nwafor" data-date="Apr 2025" data-duration="52:07">
+                    <div class="msg-card" data-audio="audio/13pillars-03.mp3">
+                        <div class="card-top">
+                            <div class="track-num">03</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Consecration: A Life Set Apart</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Apr 2025</span>
+                                    <span><i class="fas fa-clock"></i>52:07</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">52:07</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/13pillars-03.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="strength-pillars"
+                     data-title="Honour as an Inheritance" data-speaker="Pst Divine C Nwafor" data-date="Apr 2025" data-duration="49:55">
+                    <div class="msg-card" data-audio="audio/13pillars-04.mp3">
+                        <div class="card-top">
+                            <div class="track-num">04</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Honour as an Inheritance</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Apr 2025</span>
+                                    <span><i class="fas fa-clock"></i>49:55</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">49:55</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/13pillars-04.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="strength-pillars"
+                     data-title="Vision or Divine Purpose" data-speaker="Pst Divine C Nwafor" data-date="May 2025" data-duration="1:12:38">
+                    <div class="msg-card" data-audio="audio/13pillars-05.mp3">
+                        <div class="card-top">
+                            <div class="track-num">05</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Vision or Divine Purpose</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>May 2025</span>
+                                    <span><i class="fas fa-clock"></i>1:12:38</span>
+                                    <span class="tag-badge new">New</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:12:38</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/13pillars-05.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SERIES 2: Holy Ghost ── -->
+        <div class="series-section" data-series-id="holy-ghost">
+            <div class="series-header">
+                <div class="series-icon"><i class="fas fa-fire"></i></div>
+                <h2 class="series-title">The Holy Ghost Series</h2>
+                <span class="series-count" data-series-label="holy-ghost">4 messages</span>
+            </div>
+            <div class="row g-3" id="series-holy-ghost">
+
+                <div class="col-lg-6 col-12 msg-item" data-series="holy-ghost"
+                     data-title="Who Is the Holy Ghost?" data-speaker="Pst Divine C Nwafor" data-date="Jan 2025" data-duration="55:00">
+                    <div class="msg-card" data-audio="audio/hg-01.mp3">
+                        <div class="card-top">
+                            <div class="track-num">01</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Who Is the Holy Ghost?</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Jan 2025</span>
+                                    <span><i class="fas fa-clock"></i>55:00</span>
+                                    <span class="tag-badge featured">Featured</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">55:00</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/hg-01.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="holy-ghost"
+                     data-title="Baptism of the Holy Spirit" data-speaker="Pst Divine C Nwafor" data-date="Jan 2025" data-duration="1:08:45">
+                    <div class="msg-card" data-audio="audio/hg-02.mp3">
+                        <div class="card-top">
+                            <div class="track-num">02</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Baptism of the Holy Spirit</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Jan 2025</span>
+                                    <span><i class="fas fa-clock"></i>1:08:45</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:08:45</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/hg-02.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="holy-ghost"
+                     data-title="Gifts of the Spirit in Operation" data-speaker="Pst Divine C Nwafor" data-date="Feb 2025" data-duration="1:01:20">
+                    <div class="msg-card" data-audio="audio/hg-03.mp3">
+                        <div class="card-top">
+                            <div class="track-num">03</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Gifts of the Spirit in Operation</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Feb 2025</span>
+                                    <span><i class="fas fa-clock"></i>1:01:20</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:01:20</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/hg-03.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="holy-ghost"
+                     data-title="Walking in the Spirit Daily" data-speaker="Pst Divine C Nwafor" data-date="Feb 2025" data-duration="47:33">
+                    <div class="msg-card" data-audio="audio/hg-04.mp3">
+                        <div class="card-top">
+                            <div class="track-num">04</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Walking in the Spirit Daily</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Feb 2025</span>
+                                    <span><i class="fas fa-clock"></i>47:33</span>
+                                    <span class="tag-badge new">New</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">47:33</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/hg-04.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SERIES 3: Purpose & Vision ── -->
+        <div class="series-section" data-series-id="purpose">
+            <div class="series-header">
+                <div class="series-icon"><i class="fas fa-compass"></i></div>
+                <h2 class="series-title">Purpose &amp; Vision</h2>
+                <span class="series-count" data-series-label="purpose">3 messages</span>
+            </div>
+            <div class="row g-3" id="series-purpose">
+
+                <div class="col-lg-6 col-12 msg-item" data-series="purpose"
+                     data-title="Discovering Your God-Given Assignment" data-speaker="Pst Divine C Nwafor" data-date="Nov 2024" data-duration="1:05:48">
+                    <div class="msg-card" data-audio="audio/purpose-01.mp3">
+                        <div class="card-top">
+                            <div class="track-num">01</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Discovering Your God-Given Assignment</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Nov 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:05:48</span>
+                                    <span class="tag-badge featured">Featured</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:05:48</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/purpose-01.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="purpose"
+                     data-title="The Price of Purpose" data-speaker="Pst Divine C Nwafor" data-date="Dec 2024" data-duration="53:17">
+                    <div class="msg-card" data-audio="audio/purpose-02.mp3">
+                        <div class="card-top">
+                            <div class="track-num">02</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">The Price of Purpose</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Dec 2024</span>
+                                    <span><i class="fas fa-clock"></i>53:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">53:17</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/purpose-02.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="purpose"
+                     data-title="Aligning with Heaven's Blueprint" data-speaker="Pst Divine C Nwafor" data-date="Dec 2024" data-duration="1:15:02">
+                    <div class="msg-card" data-audio="audio/purpose-03.mp3">
+                        <div class="card-top">
+                            <div class="track-num">03</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Aligning with Heaven's Blueprint</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Dec 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:15:02</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:15:02</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/purpose-03.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SERIES 4: Christian Family ── -->
+        <div class="series-section" data-series-id="family">
+            <div class="series-header">
+                <div class="series-icon"><i class="fas fa-home"></i></div>
+                <h2 class="series-title">The Christian Family</h2>
+                <span class="series-count" data-series-label="family">3 messages</span>
+            </div>
+            <div class="row g-3" id="series-family">
+
+                <div class="col-lg-6 col-12 msg-item" data-series="family"
+                     data-title="God's Blueprint for Marriage" data-speaker="Pst Divine C Nwafor" data-date="Oct 2024" data-duration="1:10:00">
+                    <div class="msg-card" data-audio="audio/family-01.mp3">
+                        <div class="card-top">
+                            <div class="track-num">01</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">God's Blueprint for Marriage</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Oct 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:10:00</span>
+                                    <span class="tag-badge featured">Featured</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:10:00</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/family-01.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="family"
+                     data-title="Raising Godly Children" data-speaker="Pst Divine C Nwafor" data-date="Oct 2024" data-duration="58:44">
+                    <div class="msg-card" data-audio="audio/family-02.mp3">
+                        <div class="card-top">
+                            <div class="track-num">02</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Raising Godly Children</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Oct 2024</span>
+                                    <span><i class="fas fa-clock"></i>58:44</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">58:44</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/family-02.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="family"
+                     data-title="Spiritual Leadership in the Home" data-speaker="Pst Divine C Nwafor" data-date="Nov 2024" data-duration="1:03:55">
+                    <div class="msg-card" data-audio="audio/family-03.mp3">
+                        <div class="card-top">
+                            <div class="track-num">03</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Spiritual Leadership in the Home</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Nov 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:03:55</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:03:55</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/family-03.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SERIES 5: Faith & Healing ── -->
+        <div class="series-section" data-series-id="faith">
+            <div class="series-header">
+                <div class="series-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h2 class="series-title">Faith &amp; Divine Healing</h2>
+                <span class="series-count" data-series-label="faith">3 messages</span>
+            </div>
+            <div class="row g-3" id="series-faith">
+
+                <div class="col-lg-6 col-12 msg-item" data-series="faith"
+                     data-title="Healing is the Children's Bread" data-speaker="Pst Divine C Nwafor" data-date="Sep 2024" data-duration="1:02:14">
+                    <div class="msg-card" data-audio="audio/faith-01.mp3">
+                        <div class="card-top">
+                            <div class="track-num">01</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Healing is the Children's Bread</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Sep 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:02:14</span>
+                                    <span class="tag-badge featured">Featured</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:02:14</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/faith-01.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="faith"
+                     data-title="Activating Your Faith" data-speaker="Pst Divine C Nwafor" data-date="Sep 2024" data-duration="50:09">
+                    <div class="msg-card" data-audio="audio/faith-02.mp3">
+                        <div class="card-top">
+                            <div class="track-num">02</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Activating Your Faith</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Sep 2024</span>
+                                    <span><i class="fas fa-clock"></i>50:09</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">50:09</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/faith-02.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="faith"
+                     data-title="Standing on Covenant Ground" data-speaker="Pst Divine C Nwafor" data-date="Oct 2024" data-duration="1:07:40">
+                    <div class="msg-card" data-audio="audio/faith-03.mp3">
+                        <div class="card-top">
+                            <div class="track-num">03</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Standing on Covenant Ground</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Oct 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:07:40</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:07:40</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/faith-03.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SERIES 6: Standalone ── -->
+        <div class="series-section" data-series-id="standalone">
+            <div class="series-header">
+                <div class="series-icon"><i class="fas fa-music"></i></div>
+                <h2 class="series-title">Standalone Messages</h2>
+                <span class="series-count" data-series-label="standalone">3 messages</span>
+            </div>
+            <div class="row g-3" id="series-standalone">
+
+                <div class="col-lg-6 col-12 msg-item" data-series="standalone"
+                     data-title="The Strength of a Blessed Nation" data-speaker="Pst Divine C Nwafor" data-date="Aug 2024" data-duration="1:18:05">
+                    <div class="msg-card" data-audio="audio/standalone-01.mp3">
+                        <div class="card-top">
+                            <div class="track-num">S1</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">The Strength of a Blessed Nation</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Aug 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:18:05</span>
+                                    <span class="tag-badge featured">Featured</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:18:05</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/standalone-01.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="standalone"
+                     data-title="Don't Despise Your Beginning" data-speaker="Pst Divine C Nwafor" data-date="Jul 2024" data-duration="44:58">
+                    <div class="msg-card" data-audio="audio/standalone-02.mp3">
+                        <div class="card-top">
+                            <div class="track-num">S2</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Don't Despise Your Beginning</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Jul 2024</span>
+                                    <span><i class="fas fa-clock"></i>44:58</span>
+                                    <span class="tag-badge new">New</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">44:58</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/standalone-02.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12 msg-item" data-series="standalone"
+                     data-title="Pressing into the Supernatural" data-speaker="Pst Divine C Nwafor" data-date="Jun 2024" data-duration="1:00:30">
+                    <div class="msg-card" data-audio="audio/standalone-03.mp3">
+                        <div class="card-top">
+                            <div class="track-num">S3</div>
+                            <div class="msg-meta">
+                                <p class="msg-title">Pressing into the Supernatural</p>
+                                <div class="msg-details">
+                                    <span><i class="fas fa-microphone"></i>Pst Divine C Nwafor</span>
+                                    <span><i class="fas fa-calendar"></i>Jun 2024</span>
+                                    <span><i class="fas fa-clock"></i>1:00:30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player">
+                            <div class="player-controls">
+                                <button class="btn-play" title="Play"><i class="fas fa-play"></i></button>
+                                <div class="progress-wrap">
+                                    <div class="progress-bar-outer">
+                                        <div class="progress-bar-fill"></div>
+                                    </div>
+                                    <div class="time-row"><span class="cur-time">0:00</span><span class="dur-time">1:00:30</span></div>
+                                </div>
+                                <a class="btn-dl" href="audio/standalone-03.mp3" download title="Download"><i class="fas fa-download"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /main content -->
+
+    <!-- ═══════════════════════ NOW-PLAYING BAR ═══════════════════════ -->
+    <div id="nowPlayingBar">
+        <button class="btn-np-play" id="npPlayBtn"><i class="fas fa-play"></i></button>
+        <div style="min-width:0;flex:0 0 auto;">
+            <div class="np-title" id="npTitle">—</div>
+            <div class="np-sub" id="npSub">Strength Embassy</div>
+        </div>
+        <div class="np-progress-outer" id="npProgressOuter">
+            <div class="np-progress-fill" id="npProgressFill"></div>
+        </div>
+        <span class="np-time" id="npTime">0:00 / 0:00</span>
+        <div class="np-volume">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1">
+        </div>
+        <button class="btn-np-close" id="npClose" title="Close player"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+    <div class="container-fluid bg-dark d-flex flex-column text-light px-0 mx-0 py-5" style="margin-bottom:0;">
+        <div class="text-light py-4 border-top border-secondary ps-4 d-flex justify-content-center align-items-center">
+            <p class="mb-0 small tracking-wide lh-lg text-center">
+                Copyright &copy; 2026 — <span class="text-uppercase">Strength Embassy Global Gospel Center</span>
+            </p>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+            <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-x-twitter"></i></a>
+            <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-youtube"></i></a>
+            <a class="btn btn-lg-square btn-outline-primary border-2 m-1" href="#!"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top" style="bottom:70px"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="js/main.js"></script>
+  <!-- Component loader — must come after Bootstrap -->
+  <script src="js/components.js"></script>
+
+    <script>
+    (function () {
+        'use strict';
+
+        /* ════════════════════════════════════
+           AUDIO ENGINE
+        ════════════════════════════════════ */
+        let currentAudio = null;   // HTMLAudioElement
+        let currentCard  = null;   // .msg-card element
+        let currentTitle = '';
+        let currentSub   = '';
+
+        const npBar      = document.getElementById('nowPlayingBar');
+        const npPlayBtn  = document.getElementById('npPlayBtn');
+        const npTitle    = document.getElementById('npTitle');
+        const npSub      = document.getElementById('npSub');
+        const npFill     = document.getElementById('npProgressFill');
+        const npPOuter   = document.getElementById('npProgressOuter');
+        const npTime     = document.getElementById('npTime');
+        const npClose    = document.getElementById('npClose');
+        const volSlider  = document.getElementById('volumeSlider');
+
+        function fmtTime(s) {
+            if (isNaN(s) || !isFinite(s)) return '0:00';
+            const m = Math.floor(s / 60);
+            const sec = Math.floor(s % 60);
+            return m + ':' + String(sec).padStart(2, '0');
+        }
+
+        function stopAll() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            if (currentCard) {
+                currentCard.classList.remove('is-playing');
+                const btn = currentCard.querySelector('.btn-play i');
+                if (btn) { btn.classList.replace('fa-pause','fa-play'); }
+                const fill = currentCard.querySelector('.progress-bar-fill');
+                if (fill) fill.style.width = '0%';
+                const cur  = currentCard.querySelector('.cur-time');
+                if (cur) cur.textContent = '0:00';
+            }
+            currentAudio = null;
+            currentCard  = null;
+        }
+
+        function bindCard(card) {
+            const playBtn    = card.querySelector('.btn-play');
+            const barOuter   = card.querySelector('.progress-bar-outer');
+            const barFill    = card.querySelector('.progress-bar-fill');
+            const curTime    = card.querySelector('.cur-time');
+            const audioSrc   = card.dataset.audio;
+            const titleEl    = card.querySelector('.msg-title');
+            const title      = titleEl ? titleEl.textContent.trim() : 'Message';
+            const speakerEl  = card.closest('.msg-item');
+            const speaker    = speakerEl ? (speakerEl.dataset.speaker || 'Pst Divine C Nwafor') : '';
+
+            playBtn.addEventListener('click', function () {
+                // If this card is currently playing → pause
+                if (currentCard === card && currentAudio && !currentAudio.paused) {
+                    currentAudio.pause();
+                    playBtn.querySelector('i').classList.replace('fa-pause','fa-play');
+                    npPlayBtn.querySelector('i').classList.replace('fa-pause','fa-play');
+                    return;
+                }
+
+                // If a different card is playing → stop it
+                if (currentCard && currentCard !== card) { stopAll(); }
+
+                // If same card but paused → resume
+                if (currentCard === card && currentAudio && currentAudio.paused) {
+                    currentAudio.play();
+                    playBtn.querySelector('i').classList.replace('fa-play','fa-pause');
+                    npPlayBtn.querySelector('i').classList.replace('fa-play','fa-pause');
+                    return;
+                }
+
+                // Fresh play
+                const audio = new Audio(audioSrc);
+                audio.volume = parseFloat(volSlider.value);
+                currentAudio = audio;
+                currentCard  = card;
+                currentTitle = title;
+                currentSub   = speaker;
+
+                card.classList.add('is-playing');
+                playBtn.querySelector('i').classList.replace('fa-play','fa-pause');
+
+                // Update now-playing bar
+                npTitle.textContent = title;
+                npSub.textContent   = speaker;
+                npBar.classList.add('visible');
+                npPlayBtn.querySelector('i').classList.replace('fa-play','fa-pause');
+
+                audio.addEventListener('timeupdate', function () {
+                    if (!audio.duration) return;
+                    const pct = (audio.currentTime / audio.duration) * 100;
+                    barFill.style.width = pct + '%';
+                    npFill.style.width  = pct + '%';
+                    curTime.textContent = fmtTime(audio.currentTime);
+                    npTime.textContent  = fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration);
+                });
+
+                audio.addEventListener('ended', function () {
+                    card.classList.remove('is-playing');
+                    playBtn.querySelector('i').classList.replace('fa-pause','fa-play');
+                    npPlayBtn.querySelector('i').classList.replace('fa-pause','fa-play');
+                    barFill.style.width = '0%';
+                    npFill.style.width  = '0%';
+                    curTime.textContent = '0:00';
+                });
+
+                audio.play().catch(function () {
+                    // Playback blocked (no file yet) — just show playing state visually
+                });
+
+                // Seek on card progress bar
+                barOuter.addEventListener('click', function (e) {
+                    if (!audio.duration) return;
+                    const rect = barOuter.getBoundingClientRect();
+                    const pct  = (e.clientX - rect.left) / rect.width;
+                    audio.currentTime = pct * audio.duration;
+                });
+            });
+        }
+
+        // Bind all cards
+        document.querySelectorAll('.msg-card').forEach(bindCard);
+
+        // Now-playing bar: play/pause toggle
+        npPlayBtn.addEventListener('click', function () {
+            if (!currentAudio) return;
+            if (currentAudio.paused) {
+                currentAudio.play();
+                npPlayBtn.querySelector('i').classList.replace('fa-play','fa-pause');
+                if (currentCard) currentCard.querySelector('.btn-play i').classList.replace('fa-play','fa-pause');
+            } else {
+                currentAudio.pause();
+                npPlayBtn.querySelector('i').classList.replace('fa-pause','fa-play');
+                if (currentCard) currentCard.querySelector('.btn-play i').classList.replace('fa-pause','fa-play');
+            }
+        });
+
+        // Seek from global bar
+        npPOuter.addEventListener('click', function (e) {
+            if (!currentAudio || !currentAudio.duration) return;
+            const rect = npPOuter.getBoundingClientRect();
+            const pct  = (e.clientX - rect.left) / rect.width;
+            currentAudio.currentTime = pct * currentAudio.duration;
+        });
+
+        // Close bar
+        npClose.addEventListener('click', function () {
+            stopAll();
+            npBar.classList.remove('visible');
+        });
+
+        // Volume
+        volSlider.addEventListener('input', function () {
+            if (currentAudio) currentAudio.volume = parseFloat(this.value);
+        });
+
+        /* ════════════════════════════════════
+           SEARCH & FILTER
+        ════════════════════════════════════ */
+        const searchInput = document.getElementById('searchInput');
+        const pillBtns    = document.querySelectorAll('.filter-pill');
+        const visCount    = document.getElementById('visibleCount');
+        const emptyState  = document.getElementById('emptyState');
+        let activeSeries  = 'all';
+
+        function updateCounts() {
+            let visible = 0;
+            document.querySelectorAll('.msg-item').forEach(function (item) {
+                if (item.style.display !== 'none') visible++;
+            });
+            visCount.textContent = visible;
+
+            // Hide entire series section if all cards in it are hidden
+            document.querySelectorAll('.series-section').forEach(function (section) {
+                const items = section.querySelectorAll('.msg-item');
+                const anyVisible = Array.from(items).some(function (i) { return i.style.display !== 'none'; });
+                section.style.display = anyVisible ? '' : 'none';
+            });
+
+            emptyState.style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        function applyFilters() {
+            const query = searchInput.value.trim().toLowerCase();
+
+            document.querySelectorAll('.msg-item').forEach(function (item) {
+                const series  = item.dataset.series;
+                const title   = (item.dataset.title   || '').toLowerCase();
+                const speaker = (item.dataset.speaker || '').toLowerCase();
+                const date    = (item.dataset.date    || '').toLowerCase();
+
+                const seriesMatch = activeSeries === 'all' || series === activeSeries;
+                const textMatch   = !query || title.includes(query) || speaker.includes(query) || date.includes(query);
+
+                item.style.display = (seriesMatch && textMatch) ? '' : 'none';
+            });
+
+            updateCounts();
+        }
+
+        pillBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                pillBtns.forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                activeSeries = btn.dataset.series;
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener('input', applyFilters);
+
+        // Initial count
+        applyFilters();
+
+        /* ════════════════════════════════════
+           SPINNER
+        ════════════════════════════════════ */
+        window.addEventListener('load', function () {
+            var spinner = document.getElementById('spinner');
+            if (spinner) {
+                setTimeout(function () {
+                    spinner.classList.remove('show');
+                    spinner.style.display = 'none';
+                }, 500);
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>

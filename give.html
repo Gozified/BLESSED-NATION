@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Give Online — Strength Embassy Global Gospel Centre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Give your tithes, offerings, and seeds online to Strength Embassy Global Gospel Centre (Blessed Nation).">
+
+  <link href="img/favicon.ico" rel="icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    body { background: #f8f7f4; }
+
+    /* ── Page Header ── */
+    .give-header {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .give-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(var(--bs-primary-rgb), 0.2) 0%, transparent 60%);
+    }
+    .give-header h1 { font-family: 'Josefin Sans', sans-serif; letter-spacing: 0.08em; }
+
+    /* ── Scripture banner ── */
+    .scripture-banner {
+      background: var(--bs-primary);
+      color: #fff;
+      text-align: center;
+      padding: 16px 20px;
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Giving category cards ── */
+    .give-category {
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 14px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+    }
+    .give-category:hover { border-color: var(--bs-primary); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .give-category.selected { border-color: var(--bs-primary); background: linear-gradient(135deg, #fff 60%, rgba(var(--bs-primary-rgb),0.05)); }
+    .give-category .icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+    .give-category h6 { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .give-category p { font-size: 0.78rem; color: #888; margin: 0; line-height: 1.4; }
+
+    /* ── Amount presets ── */
+    .amount-preset {
+      border: 1.5px solid #ddd;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all .2s;
+      color: #333;
+    }
+    .amount-preset:hover { border-color: var(--bs-primary); color: var(--bs-primary); }
+    .amount-preset.selected { background: var(--bs-primary); border-color: var(--bs-primary); color: #fff; }
+
+    /* ── Form card ── */
+    .give-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    .give-card-header {
+      background: linear-gradient(90deg, #0d0d0d, #1a1a2e);
+      padding: 20px 24px;
+      color: #fff;
+    }
+
+    /* ── Bank details card ── */
+    .bank-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .bank-card .bank-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; }
+    .bank-card .acct-number {
+      font-family: 'Josefin Sans', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #0d0d0d;
+    }
+    .bank-card .copy-btn {
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all .2s;
+      color: #555;
+    }
+    .bank-card .copy-btn:hover { background: var(--bs-primary); color: #fff; border-color: var(--bs-primary); }
+
+    /* ── Why give section ── */
+    .why-give-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+    .why-give-item:last-child { border-bottom: none; }
+    .why-give-item i { width: 32px; height: 32px; background: rgba(var(--bs-primary-rgb),0.1); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: var(--bs-primary); font-size: 0.9rem; flex-shrink: 0; }
+
+    .section-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bs-primary); }
+  </style>
+</head>
+
+<body>
+
+  <!-- Spinner -->
+  <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width:3rem;height:3rem;" role="status"><span class="sr-only">Loading...</span></div>
+  </div>
+
+  <!-- ── NAVBAR (injected by components.js) ── -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="give-header text-center position-relative">
+    <div class="container position-relative">
+      <p class="section-eyebrow text-primary mb-2">Partner With Us</p>
+      <h1 class="display-5 text-white text-uppercase mb-2">Give Online</h1>
+      <p class="text-secondary mb-0">Your giving advances the Kingdom of God and changes lives</p>
+    </div>
+  </div>
+
+  <!-- Scripture banner -->
+  <div class="scripture-banner">
+    "Bring all the tithes into the storehouse… and prove Me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven." — Malachi 3:10
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="container py-5">
+    <div class="row g-5">
+
+      <!-- LEFT: Giving Form -->
+      <div class="col-lg-7">
+
+        <!-- Step 1: Category -->
+        <div class="mb-4">
+          <p class="section-eyebrow mb-2">Step 1</p>
+          <h4 class="fw-bold mb-3">Choose Giving Category</h4>
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <div class="give-category selected" onclick="selectCategory(this, 'Tithe')">
+                <span class="icon">🌾</span>
+                <h6>Tithe</h6>
+                <p>10% returned to God</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="give-category" onclick="selectCategory(this, 'Offering')">
+                <span class="icon">🙏</span>
+                <h6>Offering</h6>
+                <p>A freewill gift</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="give-category" onclick="selectCategory(this, 'Seed')">
+                <span class="icon">🌱</span>
+                <h6>Seed Faith</h6>
+                <p>Sow for a harvest</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="give-category" onclick="selectCategory(this, 'Project')">
+                <span class="icon">🏛️</span>
+                <h6>Project</h6>
+                <p>Building & missions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Amount -->
+        <div class="mb-4">
+          <p class="section-eyebrow mb-2">Step 2</p>
+          <h4 class="fw-bold mb-3">Choose Amount <span class="text-muted fw-normal fs-6">(NGN ₦)</span></h4>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <button class="amount-preset" onclick="selectAmount(this, 1000)">₦1,000</button>
+            <button class="amount-preset" onclick="selectAmount(this, 2000)">₦2,000</button>
+            <button class="amount-preset" onclick="selectAmount(this, 5000)">₦5,000</button>
+            <button class="amount-preset selected" onclick="selectAmount(this, 10000)">₦10,000</button>
+            <button class="amount-preset" onclick="selectAmount(this, 20000)">₦20,000</button>
+            <button class="amount-preset" onclick="selectAmount(this, 50000)">₦50,000</button>
+            <button class="amount-preset" onclick="selectAmount(this, 100000)">₦100,000</button>
+          </div>
+          <div class="input-group">
+            <span class="input-group-text">₦</span>
+            <input type="number" class="form-control" id="customAmount" placeholder="Or enter custom amount…" min="100" oninput="clearPresets()">
+          </div>
+        </div>
+
+        <!-- Step 3: Personal Details + Pay -->
+        <div class="give-card">
+          <div class="give-card-header">
+            <h5 class="mb-0 fw-bold">Step 3 — Your Details</h5>
+            <p class="text-secondary small mb-0 mt-1">Your information is private and secure</p>
+          </div>
+          <div class="p-4">
+            <form onsubmit="handleGiving(event)">
+              <input type="hidden" id="giving-category" value="Tithe">
+              <input type="hidden" id="giving-amount" value="10000">
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">First Name</label>
+                  <input type="text" class="form-control" placeholder="John" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Doe" required>
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Email Address</label>
+                  <input type="email" class="form-control" placeholder="john@email.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Phone Number</label>
+                  <input type="tel" class="form-control" placeholder="+234 000 000 0000">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Note / Purpose <span class="text-muted fw-normal">(optional)</span></label>
+                <input type="text" class="form-control" placeholder="e.g. 'Building fund', 'Thank you offering'…">
+              </div>
+
+              <!-- Payment method toggle -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Payment Method</label>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-outline-dark flex-fill py-2 active" id="btn-paystack" onclick="selectPayment('paystack')">
+                    <i class="bi bi-credit-card me-1"></i> Card / Paystack
+                  </button>
+                  <button type="button" class="btn btn-outline-dark flex-fill py-2" id="btn-bank" onclick="selectPayment('bank')">
+                    <i class="bi bi-bank me-1"></i> Bank Transfer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Paystack CTA -->
+              <div id="paystack-cta">
+                <div class="bg-light rounded-3 p-3 mb-3 d-flex align-items-center gap-2 text-muted small">
+                  <i class="bi bi-shield-check text-success fs-5"></i>
+                  Payments are processed securely via Paystack. Your card details are never stored.
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold fs-5" id="give-btn">
+                  Give ₦<span id="btn-amount">10,000</span> Now
+                </button>
+              </div>
+
+              <!-- Bank transfer details (hidden by default) -->
+              <div id="bank-cta" class="d-none">
+                <div class="bg-light rounded-3 p-3 mb-3 text-muted small">
+                  <i class="bi bi-info-circle text-primary me-1"></i>
+                  Transfer your gift directly to our account below, then send your receipt to <strong>give@seggc.org</strong>
+                </div>
+                <div class="bank-card mb-2">
+                  <p class="bank-name mb-1">Zenith Bank</p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="acct-number" id="acct1">1234 5678 90</span>
+                    <button type="button" class="copy-btn" onclick="copyText('1234567890', this)"><i class="bi bi-copy me-1"></i>Copy</button>
+                  </div>
+                  <p class="text-muted small mb-0 mt-1">Strength Embassy Global Gospel Centre</p>
+                </div>
+                <div class="bank-card">
+                  <p class="bank-name mb-1">Access Bank</p>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="acct-number" id="acct2">0987 6543 21</span>
+                    <button type="button" class="copy-btn" onclick="copyText('0987654321', this)"><i class="bi bi-copy me-1"></i>Copy</button>
+                  </div>
+                  <p class="text-muted small mb-0 mt-1">Strength Embassy Global Gospel Centre</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div><!-- /col-lg-7 -->
+
+      <!-- RIGHT: Why give + testimony -->
+      <div class="col-lg-5">
+
+        <!-- Why give -->
+        <div class="bg-white rounded-4 p-4 shadow-sm mb-4">
+          <p class="section-eyebrow mb-2">Giving is an Act of Worship</p>
+          <h4 class="fw-bold mb-3">Why Your Gift Matters</h4>
+          <div class="why-give-item d-flex align-items-start gap-3 py-3">
+            <i class="bi bi-broadcast-pin mt-1"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Spreading the Gospel</h6>
+              <p class="text-muted small mb-0">Your giving funds online broadcasts, missions, and outreaches that bring the Word of God to unreached people.</p>
+            </div>
+          </div>
+          <div class="why-give-item d-flex align-items-start gap-3 py-3">
+            <i class="bi bi-house-heart mt-1"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Building the House of God</h6>
+              <p class="text-muted small mb-0">Project gifts go directly toward our auditorium, equipment, and infrastructure needed for worship.</p>
+            </div>
+          </div>
+          <div class="why-give-item d-flex align-items-start gap-3 py-3">
+            <i class="bi bi-people mt-1"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Raising Kingdom People</h6>
+              <p class="text-muted small mb-0">Your seeds support discipleship programs, youth ministry, and family enrichment initiatives.</p>
+            </div>
+          </div>
+          <div class="why-give-item d-flex align-items-start gap-3 py-3">
+            <i class="bi bi-heart mt-1"></i>
+            <div>
+              <h6 class="fw-bold mb-1">You Receive a Blessing Too</h6>
+              <p class="text-muted small mb-0">"Give, and it will be given to you — good measure, pressed down, shaken together, running over." — Luke 6:38</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact for questions -->
+        <div class="bg-dark text-white rounded-4 p-4">
+          <h5 class="fw-bold mb-2"><i class="bi bi-question-circle text-primary me-2"></i>Have Questions?</h5>
+          <p class="text-secondary small mb-3">Reach our stewardship team and we'll be happy to assist you.</p>
+          <ul class="list-unstyled small mb-0">
+            <li class="mb-2"><i class="bi bi-envelope text-primary me-2"></i>give@seggc.org</li>
+            <li class="mb-2"><i class="bi bi-telephone text-primary me-2"></i>+234 (0) 800 000 0000</li>
+            <li><i class="bi bi-whatsapp text-primary me-2"></i>WhatsApp available 9 AM – 5 PM WAT</li>
+          </ul>
+        </div>
+
+      </div><!-- /col-lg-5 -->
+
+    </div><!-- /row -->
+  </div><!-- /container -->
+
+  <!-- ── FOOTER (injected by components.js) ── -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-outline-primary border-2 btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+
+  <script>
+    // ── Category selection ────────────────────────────────────────────────────
+    function selectCategory(el, cat) {
+      document.querySelectorAll('.give-category').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('giving-category').value = cat;
+    }
+
+    // ── Amount selection ──────────────────────────────────────────────────────
+    let selectedAmount = 10000;
+    function selectAmount(el, amount) {
+      document.querySelectorAll('.amount-preset').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedAmount = amount;
+      document.getElementById('customAmount').value = '';
+      document.getElementById('giving-amount').value = amount;
+      updateBtnAmount();
+    }
+    function clearPresets() {
+      document.querySelectorAll('.amount-preset').forEach(b => b.classList.remove('selected'));
+      selectedAmount = parseInt(document.getElementById('customAmount').value) || 0;
+      document.getElementById('giving-amount').value = selectedAmount;
+      updateBtnAmount();
+    }
+    function updateBtnAmount() {
+      document.getElementById('btn-amount').textContent = selectedAmount.toLocaleString('en-NG');
+    }
+
+    // ── Payment method toggle ─────────────────────────────────────────────────
+    function selectPayment(method) {
+      const paystackCta = document.getElementById('paystack-cta');
+      const bankCta = document.getElementById('bank-cta');
+      const btnPaystack = document.getElementById('btn-paystack');
+      const btnBank = document.getElementById('btn-bank');
+
+      if (method === 'paystack') {
+        paystackCta.classList.remove('d-none');
+        bankCta.classList.add('d-none');
+        btnPaystack.classList.add('active', 'btn-dark');
+        btnBank.classList.remove('active', 'btn-dark');
+      } else {
+        paystackCta.classList.add('d-none');
+        bankCta.classList.remove('d-none');
+        btnBank.classList.add('active', 'btn-dark');
+        btnPaystack.classList.remove('active', 'btn-dark');
+      }
+    }
+
+    // ── Copy account number ───────────────────────────────────────────────────
+    function copyText(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.innerHTML = '<i class="bi bi-check me-1"></i>Copied!';
+        setTimeout(() => { btn.innerHTML = '<i class="bi bi-copy me-1"></i>Copy'; }, 2000);
+      });
+    }
+
+    // ── Giving form submission ────────────────────────────────────────────────
+    // DEVELOPER NOTE:
+    // This currently alerts a placeholder. To go live with Paystack:
+    // 1. Sign up at paystack.com and get your PUBLIC key.
+    // 2. Load: <script src="https://js.paystack.co/v1/inline.js">
+    // 3. Replace the body of handleGiving() with a PaystackPop.setup({...}) call.
+    // Ask Claude to write the full Paystack integration when you're ready.
+    function handleGiving(e) {
+      e.preventDefault();
+      const btn = document.getElementById('give-btn');
+      btn.textContent = 'Processing…';
+      btn.disabled = true;
+      setTimeout(() => {
+        alert('Paystack integration goes here.\nAmount: ₦' + selectedAmount.toLocaleString('en-NG') + '\nCategory: ' + document.getElementById('giving-category').value + '\n\nSee the comment in give.html for how to connect Paystack.');
+        btn.innerHTML = 'Give ₦<span id="btn-amount">' + selectedAmount.toLocaleString('en-NG') + '</span> Now';
+        btn.disabled = false;
+      }, 800);
+    }
+  </script>
+</body>
+</html>
