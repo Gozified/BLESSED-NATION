@@ -18,17 +18,19 @@
           <span class="fw-bold lh-sm fs-6">STRENGTH EMBASSY GLOBAL GOSPEL CENTRE <span class="d-block text-primary" style="font-size:0.75em;">(BLESSED NATION)</span></span>
         </a>
 
-        <!-- Mobile Brand (Logo only, shown on mobile) -->
-        <a href="index.html" class="navbar-brand d-lg-none ms-3" style="white-space:normal;line-height:1.3;font-size:0.65em;font-weight:700;max-width:130px;">
-          STRENGTH EMBASSY<br>GLOBAL GOSPEL<br>CENTRE
-          <span class="d-block text-primary" style="font-size:0.75em;">(BLESSED NATION)</span>
-        </a>
+        <!-- Mobile Brand (Logo + Name, shown on mobile) -->
+<a href="index.html" class="navbar-brand d-lg-none ms-3 d-flex align-items-center gap-2">
+  <img src="img/LOGO.png" width="25" height="25" alt="SEGGC Logo" style="flex-shrink:0;">
+  <span style="white-space:normal;line-height:1.3;font-size:0.4em;font-weight:700;max-width:130px;">
+    STRENGTH EMBASSY<br>GLOBAL GOSPEL<br>CENTRE
+    <span class="d-block text-primary" style="font-size:0.75em;">(BLESSED NATION)</span>
+  </span>
+</a>
 
-        <!-- Mobile Toggler -->
-        <button type="button" class="navbar-toggler border-0 ms-auto" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+<!-- Mobile Toggler -->
+<button type="button" class="navbar-toggler border-0 ms-auto" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+  <span class="navbar-toggler-icon"></span>
+</button>
         <!-- Nav Links -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto p-4 p-lg-0" style="position: fixed; right: 0; width: auto; background-color: transparent; z-index: 1050;">
