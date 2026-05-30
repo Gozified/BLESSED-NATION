@@ -19,7 +19,7 @@
         </a>
 
         <!-- Mobile Brand (Logo + Name, shown on mobile) -->
-<a href="index.html" class="navbar-brand d-lg-none ms-3 d-flex align-items-center gap-2">
+<a href="index.html" class="navbar-brand d-lg-none d-flex align-items-center gap-2" style="margin-left:-4px;">
   <img src="img/LOGO.png" width="25" height="25" alt="SEGGC Logo" style="flex-shrink:0;">
   <span style="white-space:normal;line-height:1.3;font-size:0.4em;font-weight:700;max-width:130px;">
     STRENGTH EMBASSY<br>GLOBAL GOSPEL<br>CENTRE
